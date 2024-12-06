@@ -4,9 +4,9 @@
     given [ 3 , 7 , 5 , 6 , 9] , you should return ( 1 , 3 )
 
  */
-const arr = [3, 7, 5, 6, 9];
+const arr = [2, 2, 2, 2];
 
-export const findUnsortedWindow = (arr: number[]): number[] => {
+export const findUnsortedWindow = (arr: number[]): number[] | null => {
   let left: number | null = null;
   let right: number | null = null;
 
@@ -23,7 +23,7 @@ export const findUnsortedWindow = (arr: number[]): number[] => {
 
   // Default to [-1, -1] if the array is already sorted
   if (left === null || right === null) {
-    return [-1, -1];
+    return null;
   }
 
   return [left, right];

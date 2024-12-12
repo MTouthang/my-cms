@@ -80,3 +80,104 @@ This runs in 0(n) time and space complexity, since iterating over the input arra
 Given an array of integers that are out of order, determine the bounds of the smallest
 window that must be sorted in order for the entire array to be sorted. For example,
 given [ 3 , 7 , 5 , 6 , 9] , you should return ( 1 , 3 ).
+
+## 1.3 Calculate maximum subarray sum
+
+Given an array of numbers, :find the maximum sum of any contiguous subarray of
+the array. For example, given the array [34, -50, 42, 14, -5, 86], the maximum
+sum would be 137, since we would take elements 42, 14, -5, and 86. Given the array
+[ -5, -1, -8, -9], the maximum sum would be 0, since we would choose not to
+take any elements
+
+```
+/**
+ * Given an array of numbers, :find the maximum sum of any contiguous subarray of
+the array. For example, given the array [34, -50, 42, 14, -5, 86], the maximum
+sum would be 137, since we would take elements 42, 14, -5, and 86. Given the array
+[ -5, -1, -8, -9], the maximum sum would be 0, since we would choose not to
+take any elements.
+ *
+ * @param {number[]} nums
+ * @returns {number}
+ */
+const nums = [-5, -1, -8, -9];
+export const maxSubArray = (nums: number[]): number => {
+  let maxSum: number = -Infinity;
+  let currSum: number = 0;
+
+  if (nums.length == 1) {
+    if (nums[0] < 1) {
+      maxSum = 0;
+    }
+  }
+
+  for (let j = 0; j < nums.length; i++) {
+    if (nums[j] < 0) {
+      maxSum = 0;
+    }
+    return maxSum;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    currSum += nums[i];
+
+    maxSum = Math.max(maxSum, currSum);
+
+    if (currSum < 0) {
+      currSum = 0;
+    }
+  }
+
+  return maxSum;
+};
+
+console.log(maxSubArray(nums));
+
+```
+
+```
+*updated code with all test pass
+/**
+ * Given an array of numbers, :find the maximum sum of any contiguous subarray of
+the array. For example, given the array [34, -50, 42, 14, -5, 86], the maximum
+sum would be 137, since we would take elements 42, 14, -5, and 86. Given the array
+[ -5, -1, -8, -9], the maximum sum would be 0, since we would choose not to
+take any elements.
+ *
+ * @param {number[]} nums
+ * @returns {number}
+ */
+const nums = [-5, -1, -8, -9];
+export const maxSubArray = (nums: number[]): number => {
+  let maxSum: number = -Infinity;
+  let currSum: number = 0;
+
+  if (nums.length == 1) {
+    if (nums[0] < 1) {
+      maxSum = 0;
+    }
+  }
+
+  for (let j = 0; j < nums.length; i++) {
+    if (nums[j] < 0) {
+      maxSum = 0;
+    }
+    return maxSum;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    currSum += nums[i];
+
+    maxSum = Math.max(maxSum, currSum);
+
+    if (currSum < 0) {
+      currSum = 0;
+    }
+  }
+
+  return maxSum;
+};
+
+console.log(maxSubArray(nums));
+
+```

@@ -1,8 +1,18 @@
-[functions]
-  external_node_modules = ["express"]
+[build]
+  functions = "netlify/functions"
   node_bundler = "esbuild"
+
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_OPTIONS = "--enable-source-maps"
+
+[functions.api]
+  external_node_modules = ["express"]
+  format = "esm"
+
 [[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
+  from = "/*"
   to = "/.netlify/functions/api/:splat"
+  status = 200

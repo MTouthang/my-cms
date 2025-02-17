@@ -1,24 +1,25 @@
-import Link from "next/link";
+import Link from 'next/link';
+import React from 'react'
 
-export default function Home() {
+const BlogList = () => {
     const posts = [
         { id: '1', title: 'First Post' },
         { id: '2', title: 'Second Post' },
     ];
     return (
         <>
-            <h1 className="h-2"> This a Blog Home page</h1>
+            <h1>Blog</h1>
             <ul>
-                {
-                    posts.map((post) => (
-                        <li key={post.id}>
-                            <Link href={`/blog/${post.id}`}>
-                                {post.title}
-                            </Link>
-                        </li>
-                    ))
-                }
+                {posts.map((post) => (
+                    <li key={post.id}>
+                        <Link href={`/blog/${post.id}`}>
+                            {post.title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </>
-    );
+    )
 }
+
+export default BlogList

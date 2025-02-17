@@ -1,7 +1,13 @@
+// app/page.tsx
+import Link from "next/link";
+
 export default function Home() {
     return (
-        <>
-            <h1> Home page </h1>
-        </>
+        <div>
+            <h1>Welcome to My Blog</h1>
+            <Link href="/blog">
+                <p>Blog</p>
+            </Link>
+        </div>
     );
 }
